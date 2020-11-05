@@ -1,18 +1,36 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Searchbar></Searchbar>
+  <Tutorial></Tutorial>
+     <v-footer app>
+    
+    <label for="">All rights reserved to luk3d {{date()}}</label>
+  </v-footer>
   </div>
+  
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Searchbar from '@/components/searchbar.vue'
+import Tutorial from '@/components/tutorial.vue'
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    Searchbar,
+    Tutorial
+  },
+  methods:{
+     date:()=>{
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
+        return (yyyy);  
+      }
   }
 };
 </script>
